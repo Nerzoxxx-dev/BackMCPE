@@ -1,0 +1,5 @@
+name: BackSystem
+api: 4.0.0
+version: 1.0
+main: BackSystem\Back
+author: Nerzox
