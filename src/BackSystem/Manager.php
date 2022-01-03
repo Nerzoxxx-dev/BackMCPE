@@ -84,7 +84,7 @@ class Manager {
     public static function removeBackCoordinates(string $player_uuid): void{
         $db = self::getDB();
 
-        $db->query("DELETE FROM back WHERE ");
+        $db->query("DELETE FROM back WHERE player_uuid='$player_uuid'");
     }
 
     /**
