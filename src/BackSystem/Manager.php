@@ -3,6 +3,8 @@
 namespace BackSystem;
 
 
+use SQLite3;
+
 class Manager {
 
     /**
@@ -11,15 +13,15 @@ class Manager {
     private static string $driver;
 
     /**
-     * @return \SQLite3|\MySQLi
+     * @return SQLite3|\MySQLi
      */
-    private static function getDB(): \SQLite3|\MySQLi
+    private static function getDB(): SQLite3|\MySQLi
     {
         $db = null;
         switch(strtolower(Config::get('driver'))){
             case 'sqlite3':
                 self::$driver = "sqlite3";
-                $db = new \SQLite3(Back::getInstance()->getDataFolder() . 'back.sqlite3');
+                $db = new SQLite3(Back::getInstance()->getDataFolder() . 'back.sqlite3');
                 break;
             case 'mysql':
                 self::$driver = "mysqli";
@@ -27,7 +29,7 @@ class Manager {
                 break;
             default:
                 self::$driver = "sqlite3";
-                $db = new \SQLite3(Back::getInstance()->getDataFolder() . 'back.sqlite3');
+                $db = new SQLite3(Back::getInstance()->getDataFolder() . 'back.sqlite3');
         }
         return $db;
     }
