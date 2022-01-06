@@ -25,7 +25,8 @@ player_doesnt_have_coordinates_set: "{prefix} §cYou don't have coordinates set.
 player_teleport: "{prefix} §2You're teleport to your deaths coordinates." #When the player is succesfully teleported
 
 delete_coordinates_after_use: "true" #Change to false if you don't want the player's coordinates are delete after he use this command
-delete_coordinates_after_left: "true" #Change to false if you don't want the player's coordinates are delete after he use left the server```
+delete_coordinates_after_left: "true" #Change to false if you don't want the player's coordinates are delete after he use left the server
+```
 
 The ``driver`` field correspond to the type of driver you want to use for data management. This is basic set on JSON. If you don't know what's the driver, let this field on JSON. There are 3 drivers currently: JSON, SQLite3 and MySQL.
 The fields who starts with mysql can be null if the driver selected wasn't MySQL.
