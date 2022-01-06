@@ -5,7 +5,7 @@ namespace BackSystem;
 
 use SQLite3;
 
-class Manager {
+class SQLManager {
 
     /**
      * @var string
@@ -50,15 +50,20 @@ class Manager {
         $db = self::getDB();
 
         $req = $db->query("SELECT * FROM back WHERE player_uuid='$playeruuid'");
-        $arr = self::fetch($req);
+        self::sqliteclose();
 
-        return !is_null($arr);
+        return is_array(self::fetch($req));
     }
 
-    public static function getBackCoordinates(string $playeruuid): array {
+    /**
+     * @param string $playeruuid
+     * @return array|false|null
+     */
+    public static function getBackCoordinates(string $playeruuid): array|false|null {
         $db = self::getDB();
 
         $req = $db->query("SELECT posX, posY, posZ FROM back WHERE player_uuid='$playeruuid'");
+        self::sqliteclose();
         return self::fetch($req);
     }
 
@@ -77,6 +82,7 @@ class Manager {
         }else {
             $db->query("INSERT INTO back(player_uuid, posX, posY, posZ) VALUES ('$playeruuid', $posX, $posY, $posZ)");
         }
+        self::sqliteclose();
     }
 
     /**
@@ -87,6 +93,7 @@ class Manager {
         $db = self::getDB();
 
         $db->query("DELETE FROM back WHERE player_uuid='$player_uuid'");
+        self::sqliteclose();
     }
 
     /**
@@ -96,12 +103,24 @@ class Manager {
         self::getDB()->close();
     }
 
-    private static function fetch(\SQLite3Result|\mysqli_result $req): array|null {
+    /**
+     * @param \SQLite3Result|\mysqli_result $req
+     * @return array|false|null
+     */
+    private static function fetch(\SQLite3Result|\mysqli_result $req): array|null|false {
         if(self::$driver === "sqlite3"){
-            return is_array($req->fetchArray()) ? $req->fetchArray() : null;
-        }elseif(self::$driver === "mysqli"){
+            return $req->fetchArray();
+        }elseif(self::$driver === "mysql") {
             return $req->fetch_array();
         }
         return null;
+    }
+
+    /**
+     * @return void
+     */
+    private static function sqliteclose()
+    {
+        if(self::$driver === "sqlite3") self::getDB()->close();
     }
 }

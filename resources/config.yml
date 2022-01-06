@@ -1,9 +1,8 @@
-driver: "SQLite3"
-mysql_host: ""
-mysql_user: ""
-mysql_password: ""
-mysql_database: ""
-²
+driver: "SQLite3" #Possible choices: YAML, MySQL, SQLite3. If the driver was changed, all old datas used by the old driver can't be used for the new driver
+mysql_host: "" #Can be null if the driver selected was YAML or SQLite3
+mysql_user: "" #Can be null if the driver selected was YAML or SQLite3
+mysql_password: "" #Can be null if the driver selected was YAML or SQLite3
+mysql_database: "" #Can be null if the driver selected was YAML or SQLite3
 plugin_enabled: "§2 ON"
 plugin_disabled: "§c OFF"
 
@@ -20,3 +19,4 @@ player_doesnt_have_coordinates_set: "{prefix} §cYou don't have coordinates set.
 player_teleport: "{prefix} §2You're teleport to your deaths coordinates."
 
 delete_coordinates_after_use: "true" #Change to false if you don't want the player's coordinates are delete after he use this command
+delete_coordinates_after_left: "true" #Change to false if you don't want the player's coordinates are delete after he use left the server

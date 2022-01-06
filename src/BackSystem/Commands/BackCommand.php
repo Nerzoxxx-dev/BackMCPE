@@ -4,7 +4,6 @@ namespace BackSystem\Commands;
 
 use BackSystem\Back;
 use BackSystem\Config;
-use BackSystem\Manager;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\math\Vector3;
@@ -29,12 +28,12 @@ class BackCommand extends Command {
 
         if(!$player->hasPermission(Config::get('command.permission')) && !Back::getInstance()->getServer()->isOp($player->getName())) return $player->sendMessage(Config::get('player_doesnt_have_permission'));
 
-        if(!Manager::hasBackCoordinates($player->getXuid())) return $player->sendMessage(Config::get('player_doesnt_have_coordinates_set'));
+        if(!$this->c->manager::hasBackCoordinates($player->getXuid())) return $player->sendMessage(Config::get('player_doesnt_have_coordinates_set'));
 
-        $pos = Manager::getBackCoordinates($player->getXuid());
+        $pos = $this->c->manager::getBackCoordinates($player->getXuid());
         $player->teleport(new Vector3($pos[0], $pos[1], $pos[2]));
         $player->sendMessage(Config::get('player_teleport'));
 
-        if(Config::get('delte_coordinates_after_use') === "true") Manager::removeBackCoordinates($player->getXuid());
+        if(Config::get('delete_coordinates_after_use') === "true") $this->c->manager::removeBackCoordinates($player->getXuid());
     }
 }

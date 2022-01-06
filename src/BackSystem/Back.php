@@ -12,6 +12,11 @@ class Back extends PluginBase {
     public static Back $i;
 
     /**
+     * @var SQLManager|YAMLManager
+     */
+    public SQLManager|YAMLManager $manager;
+
+    /**
      * @return void
      */
     public function onEnable(): void
@@ -19,16 +24,34 @@ class Back extends PluginBase {
         self::$i = $this;
         $this->getLogger()->info(Config::get('plugin_enabled'));
 
+        //Init Manager
+        switch(strtolower(Config::get('driver'))){
+            case 'yaml':
+                $this->manager = new YAMLManager();
+                break;
+            case 'sqlite3':
+                $this->manager = new SQLManager();
+                break;
+            case 'mysql':
+                $this->manager = new SQLManager();
+                break;
+            default:
+                $this->manager = new YAMLManager();
+                break;
+        }
+
         //Init DB
-        Manager::init();
+        if($this->manager instanceof SQLManager){
+            $this->manager::init();
+        }
 
         //Commands
         $this->getServer()->getCommandMap()->registerAll('back', [
             new Commands\BackCommand($this)
         ]);
 
-        //Registering permission
-
+        //Events
+        $this->getServer()->getPluginManager()->registerEvents(new Events\BackEvent($this), $this);
 
     }
 
@@ -38,7 +61,7 @@ class Back extends PluginBase {
     public function onDisable(): void
     {
         $this->getLogger()->info(Config::get('plugin_disabled'));
-        Manager::close();
+        SQLManager::close();
     }
 
     /**
