@@ -34,9 +34,9 @@ The fields who starts with mysql can be null if the driver selected wasn't MySQL
 
 To contact me, here is my [discord](https://discord.com): Nerzoxxx#0001
 
-#FR
+# FR
 
-# RetourMCPE
+# BackMCPE
 
 ## Comment configurer
 
