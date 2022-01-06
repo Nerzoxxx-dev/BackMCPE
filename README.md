@@ -70,4 +70,4 @@ delete_coordinates_after_left: "true" #Change to false if you don't want the pla
 Le champ `` driver`` correspond au type de driver que vous souhaitez utiliser pour la gestion des données. Il est de base mis sur JSON. Si vous ne savez pas quel est le pilote, laissez ce champ sur JSON. Il existe actuellement 3 pilotes : JSON, SQLite3 et MySQL.
 Les champs qui commencent par mysql peuvent être nuls si le pilote sélectionné n'était pas MySQL.
 
-Pour me contacter, voici mon [discord] (https://discord.com) : Nerzoxxx #0001
+Pour me contacter, voici mon [discord](https://discord.com) : Nerzoxxx #0001
