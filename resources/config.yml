@@ -6,17 +6,17 @@ mysql_database: "" #Can be null if the driver selected was YAML or SQLite3
 plugin_enabled: "§2 ON"
 plugin_disabled: "§c OFF"
 
-prefix: "§e[Back]"
-command.description: "Use this to teleport you at your kill position"
-command.usage_message: "§c /back"
-command.aliases:
+prefix: "§e[Back]" #The prefix of the command. This is used to have a message like this: `` §e [Back] MESSAGE``
+command.description: #Use this to teleport you at your kill position" #The description command
+command.usage_message: "§c /back" #The usage message of the description
+command.aliases:  #The aliases of the command.
   - "b"
-command.permission: "back.use"
+command.permission: "back.use" #The permission to use this command
 
-use_in_game: "{prefix} §cPlease use this command in game."
-player_doesnt_have_permission: "{prefix} §cYou don't have the permission to use this command."
-player_doesnt_have_coordinates_set: "{prefix} §cYou don't have coordinates set."
-player_teleport: "{prefix} §2You're teleport to your deaths coordinates."
+use_in_game: "{prefix} §cPlease use this command in game."  #The message when the sender of the command isn't a player
+player_doesnt_have_permission: "{prefix} §cYou don't have the permission to use this command." #When the player haven't the permission to use this command
+player_doesnt_have_coordinates_set: "{prefix} §cYou don't have coordinates set." #When the player haven't coordinates set to teleport him
+player_teleport: "{prefix} §2You're teleport to your deaths coordinates." #When the player is succesfully teleported
 
 delete_coordinates_after_use: "true" #Change to false if you don't want the player's coordinates are delete after he use this command
 delete_coordinates_after_left: "true" #Change to false if you don't want the player's coordinates are delete after he use left the server
