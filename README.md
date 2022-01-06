@@ -1,5 +1,6 @@
 # EN
-# BackMCPE
+
+## BackMCPE
 
 ## How to config
 
@@ -36,7 +37,7 @@ To contact me, here is my [discord](https://discord.com): Nerzoxxx#0001
 
 # FR
 
-# BackMCPE
+## BackMCPE
 
 ## Comment configurer
 
