@@ -1,5 +1,5 @@
-name: BackSystem
+name: BackMCPE
 api: 4.0.0
 version: 1.0.0
-main: BackSystem\Back
+main: BackMCPE\Back
 author: Nerzox

@@ -1,9 +1,9 @@
 <?php
 
-namespace BackSystem\Commands;
+namespace BackMCPE\Commands;
 
-use BackSystem\Back;
-use BackSystem\Config;
+use BackMCPE\Back;
+use BackMCPE\Config;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\math\Vector3;

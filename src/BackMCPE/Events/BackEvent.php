@@ -1,9 +1,9 @@
 <?php
 
-namespace BackSystem\Events;
+namespace BackMCPE\Events;
 
-use BackSystem\Back;
-use BackSystem\Config;
+use BackMCPE\Back;
+use BackMCPE\Config;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerQuitEvent;

@@ -1,6 +1,6 @@
 <?php
 
-namespace BackSystem;
+namespace BackMCPE;
 
 use pocketmine\plugin\PluginBase;
 
